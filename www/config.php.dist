@@ -1,0 +1,48 @@
+<?php
+
+/*	Site Logon Variables 
+	Username and password to allow access to site
+*/
+
+$user_name = 'myusername';
+$pass_word = 'supersecretpassword';
+
+//	Cookie Duration in days
+$cookie_duration = 90; 
+
+
+/*	Database Variables 
+
+	'driver' = connection type
+	
+		For MySQL use driver = 'mysql'
+		For ODBC  use driver = 'odbc'
+		
+		* When opting for ODBC use correct DSN!    *
+		* Example: "MariaDB ODBC 3.0 Driver"       *
+		* Example: "MySQL ODBC 5.3 Unicode Driver" *
+		* Exact spelling is critical!              *
+	
+*/
+
+$Database = array (
+	'host'         => 'localhost',
+	'username'     => 'hmailserver',
+	'password'     => 'supersecretpassword',
+	'dbname'       => 'hmailserver',
+	'tableuriname' => 'hm_puribluri',
+	'tabledomname' => 'hm_puribldom',
+	'driver'       => 'mysql',
+	'port'         => '3306',
+	'dsn'          => 'MariaDB ODBC 3.0 Driver'
+);
+
+
+/*  Pagination 
+	Number of records per page
+*/
+
+$no_of_records_per_page = 20;
+
+
+?>

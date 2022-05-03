@@ -1,0 +1,377 @@
+body {
+	background: #fefefe;
+	font-family: "Roboto";
+	font-size: 12pt;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: #000;
+	background: #fefefe;
+    z-index: 1;
+    overflow: hidden;
+    text-align:center;
+}
+
+.header h1 {
+	font-size:25px;
+    font-weight:normal;
+	margin:0 auto;
+}
+
+.header h2 {
+	font-size:15px;
+    font-weight:normal;
+	margin:0 auto;
+}
+
+.wrapper {
+	max-width: 920px;
+	position: relative;
+	margin: 30px auto 30px auto;
+	padding-top: 0px;
+}
+
+.clear {
+	clear: both;
+}
+
+.banner {
+	width: 100%;
+}
+
+.headlinks {
+	max-width: 720px;
+	min-width: 300px;
+	position:relative;
+	margin: 0px auto;
+}
+
+.headlinks a:link, a:active, a:visited {
+	color: red;
+	text-decoration: underline;
+}
+
+.headlinks a:hover {
+	color: red;
+	text-decoration: none;
+}
+
+.section {
+	padding: 5px 0 15px 0;
+	margin: 0;
+}
+
+.section a:link, a:visited {
+	color: black;
+	text-decoration: none;
+}
+
+.section a:hover, a:active {
+	color: red;
+	text-decoration: underline;
+}
+
+.section h2 {
+	font-size:16px;
+    font-weight:bold;
+	text-align:left;
+}
+
+.section h3 {
+	font-size:16px;
+    font-weight:bold;
+}
+
+.secleft {
+	float: left;
+	width: 49%;
+	padding-right: 3px;
+}
+
+.secright {
+	float: right;
+	width: 49%;
+	padding-left: 3px;
+}
+
+table.section {
+	border-collapse: collapse;
+	border: 1px solid black;
+	border-spacing: 10px;
+	width: 100%;
+	font-size: 10pt;
+}
+	
+table.section tr:nth-child(even) {
+    background-color: #F8F8F8;
+	padding: 4px;
+}
+
+table.section th, table.section td {
+	border: 1px solid black;
+	padding: 4px;
+	word-wrap: break-word;
+}
+
+.footer {
+	width: 100%;
+	text-align: center;
+	font-size: 8pt;
+}
+
+.nav {
+	font-size: 0.8em;
+}
+
+.nav a:link, a:active, a:visited {
+	/* color: red; */
+	text-decoration: underline;
+}
+
+.nav a:hover {
+	/* color: red; */
+	text-decoration: none;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+li {
+	padding: 0 3px 0 0;
+	display: inline;
+}
+
+
+	
+/* ###  NEW TABLE CSS  ### */
+.div-table {
+	display: table;
+	width: 100%;
+	font-size: 0.8em;
+	border-left: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+
+.div-table-row-header {
+	display: table-row;
+	font-weight: bold;
+	text-align: center;
+}
+
+.div-table-row {
+	display: table-row;
+}
+
+.div-table-row:nth-of-type(even) { 
+	background: #eee; 
+	border: 1px solid #ccc; 
+}
+
+.center {
+	text-align: center;
+}
+
+.div-table-col {
+	display: table-cell;
+	padding: 3px;
+	border-right: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+}
+
+.uriwidth {
+	width: 500px;
+}
+
+.truncate{
+	display: block;
+	max-width: 500px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* ###  TOGGLE SWITCH  ### */
+.onoffswitch {
+    position: relative;
+    width: 40px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    top: 0px;
+    left: 0px;
+    margin: auto;
+}
+
+.onoffswitch-checkbox {
+    display: none;
+}
+
+.onoffswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #999999;
+    border-radius: 20px;
+}
+
+.onoffswitch-inner {
+    width: 200%;
+    margin-left: -100%;
+    -moz-transition: margin 0.2s ease-in 0s;
+    -webkit-transition: margin 0.2s ease-in 0s;
+    -o-transition: margin 0.2s ease-in 0s;
+    transition: margin 0.2s ease-in 0s;
+}
+
+.onoffswitch-inner:before,
+.onoffswitch-inner:after {
+    float: left;
+    width: 50%;
+    height: 3px;
+    padding: 0;
+    line-height: 2px;
+    font-size: 4px;
+    color: white;
+    font-family: Trebuchet, Arial, sans-serif;
+    font-weight: bold;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.onoffswitch-inner:before {
+    content: "";
+    padding-left: 10px;
+    background-color: #ff5154;
+    color: #FFFFFF;
+}
+
+.onoffswitch-inner:after {
+    content: "";
+    padding-right: 10px;
+    background-color: #EEEEEE;
+    color: #999999;
+    text-align: right;
+}
+
+.onoffswitch-switch {
+    height: 10px;
+	width: 10px;
+    margin: -5px;
+    background: #FFFFFF;
+    border: 2px solid #999999;
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 31px;
+    -moz-transition: all 0.2s ease-in 0s;
+    -webkit-transition: all 0.2s ease-in 0s;
+    -o-transition: all 0.2s ease-in 0s;
+    transition: all 0.2s ease-in 0s;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px;
+}
+
+.switchleft {
+	float: left;
+	width:80px;
+}
+
+.switchright {
+	margin-left: 80px;
+	text-align: left;
+}
+
+@media only screen and (max-width: 790px) {
+
+	.onoffswitch {
+		margin: 5px 0;
+	}
+
+	.truncate{
+		display: none;
+		max-width: calc(100% - 90px);
+		/* white-space: normal; */
+		overflow: auto;
+	}
+
+	.secleft {
+		float: none;
+		width: 100%;
+		padding: 0 0 10px 0;
+		text-align: left;
+	}
+	.secright {
+		float: none ;
+		width: 100% ;
+	}
+
+	/* ###  NEW TABLE CSS  ### */
+	.div-table, .div-table-row-header, .div-table-row, .div-table-col { 
+		display: block; 
+	}
+	
+	.div-table {
+		border: none;
+	}
+
+	/* Hide table headers (but not display: none;, for accessibility) */
+	.div-table-row-header { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	.div-table-row { 
+		border: none;
+		border-left: 1px solid #ccc; 
+		border-right: 1px solid #ccc; 
+	}
+	
+	.div-table-col { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #e6e6e6;
+		position: relative;
+		padding-left: 90px; 
+		text-align: left;
+	}
+
+	.div-table-col:before { 
+		/* Now like a table header */
+		border: none;
+		position: absolute;
+		top: 3px;
+		left: 6px;
+		padding-right: 10px; 
+		/* Label the data */
+		content: attr(data-column);
+		color: #000;
+		font-weight: normal;
+		/* font-weight: bold; */
+	}
+
+	.whitespace {
+		white-space: pre;           /* CSS 2.0 */
+		white-space: pre-wrap;      /* CSS 2.1 */
+		white-space: pre-line;      /* CSS 3.0 */
+		white-space: -pre-wrap;     /* Opera 4-6 */
+		white-space: -o-pre-wrap;   /* Opera 7 */
+		white-space: -moz-pre-wrap; /* Mozilla */
+		white-space: -hp-pre-wrap;  /* HP Printers */
+		word-wrap: break-word;      /* IE 5+ */
+	}
+}	
