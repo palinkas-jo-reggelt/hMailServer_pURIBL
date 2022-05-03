@@ -50,8 +50,11 @@
 			$sql = "
 				DELETE FROM ".$Database['tabledomname']."
 				WHERE id = '".$_POST['delete']."';
+			";
+			$pdo->exec($sql);
+			$sql = "
 				DELETE FROM ".$Database['tableuriname']."
-				WHERE uri LIKE '".$_POST['domain']."';
+				WHERE uri LIKE '%".$_POST['domain']."%';
 			";
 			$pdo->exec($sql);
 		}
