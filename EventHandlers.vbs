@@ -1,10 +1,11 @@
 Option Explicit
 
-Private Const hMSPASSWORD = "SuperSecrecthMailServerPassword"
-Private Const hMSdbPW = "SuperSecretDatabasePassword"
-Private Const pURIBLURITable = "hm_puribluri"
-Private Const pURIBLDomTable = "hm_puribldom"
-Private Const PublicSuffix = "C:\Program Files (x86)\hMailServer\Events\public_suffix_list.vbs"
+Private Const DeleteThreshold = 7                             'hMailServer spam delete threshold
+Private Const hMSPASSWORD = "SuperSecrecthMailServerPassword" 'hMailServer COM password (Administrator password)
+Private Const hMSdbPW = "SuperSecretDatabasePassword"         'hMailServer MySQL database user password
+Private Const pURIBLURITable = "hm_puribluri"                 'pURIBL URI table name
+Private Const pURIBLDomTable = "hm_puribldom"                 'pURIBL domain table name
+Private Const PublicSuffix = "C:\Program Files (x86)\hMailServer\Events\public_suffix_list.vbs" 'Path to public_suffix_list.vbs
 Private pURIBLDict : Set pURIBLDict = CreateObject("Scripting.Dictionary")
 
 Function Lookup(strRegEx, strMatch) : Lookup = False
@@ -112,6 +113,32 @@ Function ExcludeHead(strStr)
 	End If
 End Function
 
+'###   pURIBL MySQL Table Structure   ###'
+'
+' CREATE TABLE IF NOT EXISTS hm_puribluri (
+	' id int(11) NOT NULL AUTO_INCREMENT,
+	' uri text NOT NULL,
+	' timestamp datetime NOT NULL,
+	' adds mediumint(9) NOT NULL,
+	' hits mediumint(9) NOT NULL,
+	' active tinyint(1) NOT NULL,
+	' PRIMARY KEY (id),
+	' UNIQUE KEY uri (uri) USING HASH
+' ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+' COMMIT;
+
+' CREATE TABLE IF NOT EXISTS hm_puribldom (
+	' id int(11) NOT NULL AUTO_INCREMENT,
+	' domain text NOT NULL,
+	' timestamp datetime NOT NULL,
+	' adds mediumint(9) NOT NULL,
+	' hits mediumint(9) NOT NULL,
+	' shortcircuit tinyint(1) NOT NULL,
+	' PRIMARY KEY (id),
+	' UNIQUE KEY uri (domain) USING HASH
+' ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+' COMMIT;
+
 Function pURIBLRegEx(pURIBLDict, pType) : pURIBLRegEx = ""
 	Dim strData, pID, pRecord, pURL, pSQL
 	Dim oRecord, oDB : Set oDB = CreateObject("ADODB.Connection")
@@ -186,7 +213,7 @@ Sub OnAcceptMessage(oClient, oMessage)
 	Dim Done
 
 	REM - Blacklist on pURIBL
-	Dim pURIBLBlacklistScore : pURIBLBlacklistScore = 5 'Blacklist Score
+	Dim pURIBLBlacklistScore : pURIBLBlacklistScore = 4 'Blacklist Score
 	Done = False
 	Do Until Done
 
@@ -243,7 +270,7 @@ Sub OnDeliveryStart(oMessage)
 
 	REM - Populate pURIBL
 	If oMessage.HeaderValue("X-hMailServer-Reason-Score") <> "" Then
-		If CInt(oMessage.HeaderValue("X-hMailServer-Reason-Score") > 6) Then
+		If CInt(oMessage.HeaderValue("X-hMailServer-Reason-Score") >= DeleteThreshold) Then
 
 			Dim strSQL, strSQLD, oDB : Set oDB = GetDatabaseObject
 			Dim strRegEx, Match, Matches
@@ -257,7 +284,7 @@ Sub OnDeliveryStart(oMessage)
 				strRegExD = "(?:^https?)(?::\/\/|%3A%2F%2F)(?:[^@\/\n]+@)?([^:\/%?\n]+)"
 				Set MatchesD = oLookup(strRegExD, Match.SubMatches(0), True)
 				For Each MatchD In MatchesD
-					strSQLD = "INSERT INTO " & pURIBLDomTable & " (domain,timestamp,adds,shortcircuit) VALUES ('" & GetMainDomain(MatchD.SubMatches(0)) & "',NOW(),1,0) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
+					strSQLD = "INSERT INTO " & pURIBLDomTable & " (domain,timestamp,adds,shortcircuit) VALUES ('" & GetMainDomain(MatchD.SubMatches(0)) & "',NOW(),1,1) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
 					Call oDB.ExecuteSQL(strSQLD)
 				Next
 			Next
@@ -269,7 +296,7 @@ Sub OnDeliveryStart(oMessage)
 				strRegExD = "(?:^https?)(?::\/\/|%3A%2F%2F)(?:[^@\/\n]+@)?([^:\/%?\n]+)"
 				Set MatchesD = oLookup(strRegExD, Match.SubMatches(0), True)
 				For Each MatchD In MatchesD
-					strSQLD = "INSERT INTO " & pURIBLDomTable & " (domain,timestamp,adds,shortcircuit) VALUES ('" & GetMainDomain(MatchD.SubMatches(0)) & "',NOW(),1,0) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
+					strSQLD = "INSERT INTO " & pURIBLDomTable & " (domain,timestamp,adds,shortcircuit) VALUES ('" & GetMainDomain(MatchD.SubMatches(0)) & "',NOW(),1,1) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
 					Call oDB.ExecuteSQL(strSQLD)
 				Next
 			Next

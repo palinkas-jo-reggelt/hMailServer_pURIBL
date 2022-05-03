@@ -46,5 +46,7 @@ COMMIT;
  
  URIs are full URIs. They can be set to inactive so they won't be used for matching.
  
- Domains are the highest full domain not including subdomains. They are scraped from the URIs collected. They can be set to short circuit, which means if a match is made with the domain, it will score and stop looking for individual URIs.
+ Domains are the highest full domain not including subdomains. They are scraped from the URIs collected. They can be set to short circuit, which means if a match is made with the domain, it will score and stop looking for individual URIs. Deleting a domain will also delete all associated URIs.
+ 
+ Clicking on URIs or domains, of course, will not launch your browser toward a potential virus. Clicking on a domain will search for matching URIs. Clicking on a URI will bring up its properties for editing.
  
