@@ -47,16 +47,16 @@
 
 	if(isset($_POST['delete'])){
 		if(!empty($_POST['delete'])) {
-			$sql = "
+			$sql_dom = "
 				DELETE FROM ".$Database['tabledomname']."
-				WHERE id = '".$_POST['delete']."';
+				WHERE id = '".explode(",",$_POST['delete'])[0]."';
 			";
-			$pdo->exec($sql);
-			$sql = "
+			$pdo->exec($sql_dom);
+			$sql_uri = "
 				DELETE FROM ".$Database['tableuriname']."
-				WHERE uri LIKE '%".$_POST['domain']."%';
+				WHERE domain = '".explode(",",$_POST['delete'])[1]."';
 			";
-			$pdo->exec($sql);
+			$pdo->exec($sql_uri);
 		}
 	}
 	
@@ -159,8 +159,7 @@
 						</div>
 					</div>
 					<div class='div-table-col center' data-column='Delete'>
-						<input type='checkbox' style='height:10px;margin:0;' name='delete' value='".$row['id']."' onClick='return confirmSubmit()' onchange='submitFunction()'>
-						<input type='hidden' name='domain' value='".$row['domain']."'>
+						<input type='checkbox' style='height:10px;margin:0;' name='delete' value='".$row['id'].",".$row['domain']."' onClick='return confirmSubmit()' onchange='submitFunction()'>
 					</div>
 				</div>";
 		}

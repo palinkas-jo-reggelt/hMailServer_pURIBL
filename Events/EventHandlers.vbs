@@ -270,7 +270,7 @@ Sub OnDeliveryStart(oMessage)
 
 	REM - Populate pURIBL
 	If oMessage.HeaderValue("X-hMailServer-Reason-Score") <> "" Then
-		If CInt(oMessage.HeaderValue("X-hMailServer-Reason-Score") >= DeleteThreshold) Then
+		If CInt(oMessage.HeaderValue("X-hMailServer-Reason-Score")) >= DeleteThreshold Then
 
 			Dim strSQL, strSQLD, oDB : Set oDB = GetDatabaseObject
 			Dim strRegEx, Match, Matches
@@ -279,11 +279,11 @@ Sub OnDeliveryStart(oMessage)
 			strRegEx = "(\b((https?(:\/\/|%3A%2F%2F))((([a-zA-Z0-9-]+)\.)+[a-zA-Z0-9-]+)(:\d+)?((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)\b)"
 			Set Matches = oLookup(strRegEx, oMessage.Body, True)
 			For Each Match In Matches
-				strSQL = "INSERT INTO " & pURIBLURITable & " (uri,timestamp,adds,active) VALUES ('" & Match.SubMatches(0) & "',NOW(),1,1) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
-				Call oDB.ExecuteSQL(strSQL)
 				strRegExD = "(?:^https?)(?::\/\/|%3A%2F%2F)(?:[^@\/\n]+@)?([^:\/%?\n]+)"
 				Set MatchesD = oLookup(strRegExD, Match.SubMatches(0), True)
 				For Each MatchD In MatchesD
+					strSQL = "INSERT INTO " & pURIBLURITable & " (uri,domain,timestamp,adds,active) VALUES ('" & Match.SubMatches(0) & "','" & GetMainDomain(MatchD.SubMatches(0)) & "',NOW(),1,1) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
+					Call oDB.ExecuteSQL(strSQL)
 					strSQLD = "INSERT INTO " & pURIBLDomTable & " (domain,timestamp,adds,shortcircuit) VALUES ('" & GetMainDomain(MatchD.SubMatches(0)) & "',NOW(),1,1) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
 					Call oDB.ExecuteSQL(strSQLD)
 				Next
@@ -291,11 +291,11 @@ Sub OnDeliveryStart(oMessage)
 
 			Set Matches = oLookup(strRegEx, oMessage.HTMLBody, True)
 			For Each Match In Matches
-				strSQL = "INSERT INTO " & pURIBLURITable & " (uri,timestamp,adds,active) VALUES ('" & Match.SubMatches(0) & "',NOW(),1,1) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
-				Call oDB.ExecuteSQL(strSQL)
 				strRegExD = "(?:^https?)(?::\/\/|%3A%2F%2F)(?:[^@\/\n]+@)?([^:\/%?\n]+)"
 				Set MatchesD = oLookup(strRegExD, Match.SubMatches(0), True)
 				For Each MatchD In MatchesD
+					strSQL = "INSERT INTO " & pURIBLURITable & " (uri,domain,timestamp,adds,active) VALUES ('" & Match.SubMatches(0) & "','" & GetMainDomain(MatchD.SubMatches(0)) & "',NOW(),1,1) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
+					Call oDB.ExecuteSQL(strSQL)
 					strSQLD = "INSERT INTO " & pURIBLDomTable & " (domain,timestamp,adds,shortcircuit) VALUES ('" & GetMainDomain(MatchD.SubMatches(0)) & "',NOW(),1,1) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
 					Call oDB.ExecuteSQL(strSQLD)
 				Next

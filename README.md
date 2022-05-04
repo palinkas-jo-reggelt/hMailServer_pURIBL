@@ -13,6 +13,7 @@
 CREATE TABLE IF NOT EXISTS hm_puribluri (
 	id int(11) NOT NULL AUTO_INCREMENT,
 	uri text NOT NULL,
+	domain varchar(128) NOT NULL,
 	timestamp datetime NOT NULL,
 	adds mediumint(9) NOT NULL,
 	hits mediumint(9) NOT NULL,
@@ -30,16 +31,16 @@ CREATE TABLE IF NOT EXISTS hm_puribldom (
 	hits mediumint(9) NOT NULL,
 	shortcircuit tinyint(1) NOT NULL,
 	PRIMARY KEY (id),
-	UNIQUE KEY uri (domain) USING HASH
+	UNIQUE KEY domain (domain) USING HASH
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 COMMIT;
 ```
 
- Copy the contents of EventHandlers.vbs into your EventHandlers.vbs
+ Copy the contents of Events/EventHandlers.vbs into your EventHandlers.vbs.
  
- Copy public_suffix_list.vbs into hMailServer Events folder. Alternatively, make your own using PublicSuffixLoad.ps1. public_suffix_list.vbs should be updated monthly as the list changes over time.
+ Copy Events/public_suffix_list.vbs into hMailServer Events folder. Alternatively, make your own using PublicSuffixLoad.ps1. public_suffix_list.vbs should be updated monthly as the list changes over time.
  
- Copy contents of www folder into web server for management tools
+ Copy contents of main folder (PHP files + VERSION file) into web server for management tools. Rename config.php.dist to config.php and update the variables.
 
 # PHP Management
  There are two categories: Domains and URIs.

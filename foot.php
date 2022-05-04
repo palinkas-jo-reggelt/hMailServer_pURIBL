@@ -1,7 +1,7 @@
 
 	<br>
 	<div class="footer">
-		Copyright 2022 Pálinkás Jó Reggelt
+		&#169; <?php echo date("Y"); ?> Pálinkás Jó Reggelt
 <?php 
 (int)$versionGitHub = file_get_contents('https://raw.githubusercontent.com/palinkas-jo-reggelt/hMailServer_pURIBL/main/VERSION');
 (int)$versionLocal = file_get_contents('VERSION');

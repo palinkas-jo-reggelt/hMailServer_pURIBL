@@ -1,5 +1,5 @@
 # Ignore config file
-/www/config.php
+/config.php
 /test*
 
 # Ignoring directories
