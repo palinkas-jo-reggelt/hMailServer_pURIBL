@@ -1,7 +1,7 @@
-# Ignore config file
+# Ignore files
 /config.php
-/test*
+/Events/test*
 
 # Ignoring directories
 # Both the directory itself and its contents will be ignored.
-uploads/
+test/

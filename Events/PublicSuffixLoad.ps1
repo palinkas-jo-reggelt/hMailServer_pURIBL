@@ -55,4 +55,4 @@ If (Test-Path $PubSufFile) {
 (Get-Content -Path $CondensedDatList) -Replace '\|$','' | Set-Content -NoNewline -Path $CondensedDatList
 (Get-Content -Path $CondensedDatList) -Replace '$','"' | Set-Content -NoNewline -Path $CondensedDatList
 
-(Get-Content -Path $CondensedDatList) -Replace '^Dim PubSufRegEx : PubSufRegEx','[RegEx]$PubSufRegEx' | Set-Content -NoNewline -Path $PSPubSuf #-Encoding UTF8
+(Get-Content -Path $CondensedDatList -Encoding UTF8) -Replace '^Dim PubSufRegEx : PubSufRegEx','[RegEx]$PubSufRegEx' | Set-Content -NoNewline -Path $PSPubSuf -Encoding UTF8
