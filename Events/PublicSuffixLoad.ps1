@@ -10,6 +10,7 @@
 	* Downloads public_suffix_list.dat
 	* Converts public_suffix_list.dat to RegEx pattern 
 	* Outputs to vbs file for use with EventHandlers.vbs
+	* Outputs to powershell file for use with whatever you want
 
 .NOTES
 	Run weekly from task scheduler

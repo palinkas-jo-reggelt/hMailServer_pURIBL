@@ -255,6 +255,172 @@ Dim oMessageHTMLBody : oMessageHTMLBody = "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HT
 "    <TD=20" & _
 "  style=3D'FONT-SIZE: 0px; HEIGHT: 8px; LINE-HEIGHT: 0'>&nbsp;</TD></T R></TBODY></TABLE></BODY></HTML>"
 
+
+Dim oMessageHTMLBody2 : oMessageHTMLBody2 = "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.0 Transitional//EN'>" & _
+"<HTML xmlns=3D'http://www.w3.org/1999/xhtml' xmlns:v =3D=20" & _
+"'urn:schemas-microsoft-com:vml' xmlns:o =3D=20" & _
+"'urn:schemas-microsoft-com:office:office'><HEAD><TITLE></TITLE>" & _
+"<META content=3D'text/html; charset=3Dutf-8' http-equiv=3DContent-Type>" & _
+"<META name=3Dx-apple-disable-message-reformatting>" & _
+"<META name=3Dviewport content=3D'width=3Ddevice-width, initial-scale=3D1.0'>" & _
+"<STYLE type=3Dtext/css>" & _
+"    body, .maintable { height:100% !important; width:100% !important; margin:0; padding:0;}" & _
+"    img, a img { border:0; outline:none; text-decoration:none;}" & _
+"    p {margin-top:0; margin-right:0; margin-left:0; padding:0;}" & _
+"    .ReadMsgBody {width:100%;}" & _
+"    .ExternalClass {width:100%;}" & _
+"    .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height:100%;}" & _
+"    img {-ms-interpolation-mode: bicubic;}" & _
+"    body, table, td, p, a, li, blockquote {-ms-text-size-adjust:100%; -webkit-text-size-adjust:100%;}" & _
+"   /*p {display: table; table-layout: fixed; width: 100%; word-wrap: break-word;} */" & _
+"</STYLE>" & _
+"" & _
+"<STYLE type=3Dtext/css>" & _
+"@media only screen and (max-width: 480px) {" & _
+" .rtable {width: 100% !important;}" & _
+" .rtable tr {height:auto !important; display: block;}" & _
+" .contenttd {max-width: 100% !important; display: block; width: auto !important;}" & _
+" .contenttd:after {content: ''; display: table; clear: both;}" & _
+" .hiddentds {display: none;}" & _
+" .imgtable, .imgtable table {max-width: 100% !important; height: auto; float: none; margin: 0 auto;}" & _
+" .imgtable.btnset td {display: inline-block;}" & _
+" .imgtable img {width: 100%; height: auto !important;display: block;}" & _
+" table {float: none;}" & _
+" .mobileHide {display: none !important; width: 0 !important; max-height: 0 !important; overflow: hidden !important;}" & _
+" .desktopHide {display: block !important; width: 100% !important; max-height: unset !important; overflow: unset !important;}" & _
+" .noresponsive p {display: table; table-layout: fixed; width: 100%; word-wrap: break-word;}" & _
+"}" & _
+"@media only screen and (min-width: 481px) {" & _
+" .desktopHide {display: none !important; width: 0 !important; max-height: 0 !important; overflow: hidden !important;}" & _
+"}" & _
+"</STYLE>" & _
+"" & _
+"<META name=3DGENERATOR content=3D'MSHTML 11.00.9600.17037'></HEAD>" & _
+"<BODY=20" & _
+"style=3D'OVERFLOW: auto; CURSOR: auto; FONT-SIZE: 14px; FONT-FAMILY: Vijaya; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; MARGIN: 0px; PADDING-RIGHT: 0px; BACKGROUND-COLOR: #feffff'>" & _
+"<TABLE style=3D'BACKGROUND-COLOR: #feffff' cellSpacing=3D0 cellPadding=3D0=20" & _
+"width=3D'100%'>" & _
+"  <TBODY>" & _
+"  <TR>" & _
+"    <TD style=3D'FONT-SIZE: 0px; HEIGHT: 0px; LINE-HEIGHT: 0'></TD></TR>" & _
+"  <TR>" & _
+"    <TD vAlign=3Dtop>" & _
+"      <TABLE class=3Drtable style=3D'WIDTH: 660px; MARGIN: 0px auto' cellSpacing=3D0=20" & _
+"      cellPadding=3D0 width=3D660 align=3Dcenter border=3D0>" & _
+"        <TBODY>" & _
+"        <TR>" & _
+"          <TH class=3Dcontenttd=20" & _
+"          style=3D'BORDER-TOP: medium none; BORDER-RIGHT: medium none; WIDTH: 660px; BORDER-BOTTOM: medium none; FONT-WEIGHT: normal; PADDING-BOTTOM: 0px; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 0px; BORDER-LEFT: medium none; PADDING-RIGHT: 0px; BACKGROUND-COLOR: #feffff'>" & _
+"            <TABLE style=3D'WIDTH: 100%' cellSpacing=3D0 cellPadding=3D0 align=3Dleft>" & _
+"              <TBODY>" & _
+"              <TR style=3D'HEIGHT: 2031px' height=3D2031>" & _
+"                <TH class=3Dcontenttd=20" & _
+"                style=3D'BORDER-TOP: medium none; BORDER-RIGHT: medium none; WIDTH: 650px; VERTICAL-ALIGN: top; BORDER-BOTTOM: medium none; FONT-WEIGHT: normal; PADDING-BOTTOM: 5px; TEXT-ALIGN: left; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: medium none; PADDING-RIGHT: 5px; BACKGROUND-COLOR: transparent'>" & _
+"                  <P=20" & _
+"                  style=3D'MARGIN-BOTTOM: 1em; FONT-SIZE: 14px; FONT-FAMILY: Vijaya; COLOR: #0c0909; TEXT-ALIGN: center; MARGIN-TOP: 0px; LINE-HEIGHT: 18px; BACKGROUND-COLOR: transparent; mso-line-height-rule: exactly'=20" & _
+"                  align=3Dcenter>&nbsp;<A title=3D'' style=3D'COLOR: #0c0909'=20" & _
+"                  href=3D'https://www.isoymr.ru/' target=3D_blank>View in=20" & _
+"                  browser</A></P>" & _
+"                  <TABLE class=3Dimgtable style=3D'MARGIN: 0px auto' cellSpacing=3D0=20" & _
+"                  cellPadding=3D0 align=3Dcenter border=3D0>" & _
+"                    <TBODY>" & _
+"                    <TR>" & _
+"                      <TD=20" & _
+"                      style=3D'PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px'=20" & _
+"                      align=3Dcenter>" & _
+"                        <TABLE cellSpacing=3D0 cellPadding=3D0 border=3D0>" & _
+"                          <TBODY>" & _
+"                          <TR>" & _
+"                            <TD=20" & _
+"                            style=3D'BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; BACKGROUND-COLOR: transparent'><A=20" & _
+"                              href=3D'https://www.isoymr.ru/' target=3D_blank><IMG=20" & _
+"                              style=3D'BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; DISPLAY: block'=20" & _
+"                              hspace=3D0 alt=3D'2022 New Collection. Top Design'=20" & _
+"                              src=3D'https://cs.isoymr.ru/40e51.jpg'=20" & _
+"                            width=3D650></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>" & _
+"                  <TABLE class=3Dimgtable style=3D'MARGIN: 0px auto' cellSpacing=3D0=20" & _
+"                  cellPadding=3D0 align=3Dcenter border=3D0>" & _
+"                    <TBODY>" & _
+"                    <TR>" & _
+"                      <TD=20" & _
+"                      style=3D'PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px'=20" & _
+"                      align=3Dcenter>" & _
+"                        <TABLE cellSpacing=3D0 cellPadding=3D0 border=3D0>" & _
+"                          <TBODY>" & _
+"                          <TR>" & _
+"                            <TD=20" & _
+"                            style=3D'BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; BACKGROUND-COLOR: transparent'><A=20" & _
+"                              href=3D'https://www.isoymr.ru/' target=3D_blank><IMG=20" & _
+"                              style=3D'BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; DISPLAY: block'=20" & _
+"                              hspace=3D0 alt=3DTaigarama=20" & _
+"                              src=3D'https://cs.isoymr.ru/b8eea.jpg'=20" & _
+"                            width=3D640></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>" & _
+"                  <TABLE class=3Dimgtable style=3D'MARGIN: 0px auto' cellSpacing=3D0=20" & _
+"                  cellPadding=3D0 align=3Dcenter border=3D0>" & _
+"                    <TBODY>" & _
+"                    <TR>" & _
+"                      <TD=20" & _
+"                      style=3D'PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px'=20" & _
+"                      align=3Dcenter>" & _
+"                        <TABLE cellSpacing=3D0 cellPadding=3D0 border=3D0>" & _
+"                          <TBODY>" & _
+"                          <TR>" & _
+"                            <TD=20" & _
+"                            style=3D'BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; BACKGROUND-COLOR: transparent'><A=20" & _
+"                              href=3D'https://www.isoymr.ru/' target=3D_blank><IMG=20" & _
+"                              style=3D'BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; DISPLAY: block'=20" & _
+"                              hspace=3D0=20" & _
+"                              alt=3D'Crafted from a mix of the Maison=E2=80=99s signature canvas and supple Taiga leather,'=20" & _
+"                              src=3D'https://cs.isoymr.ru/cf40a.jpg'=20" & _
+"                            width=3D641></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>" & _
+"                  <TABLE class=3Dimgtable style=3D'MARGIN: 0px auto' cellSpacing=3D0=20" & _
+"                  cellPadding=3D0 align=3Dcenter border=3D0>" & _
+"                    <TBODY>" & _
+"                    <TR>" & _
+"                      <TD=20" & _
+"                      style=3D'PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px'=20" & _
+"                      align=3Dcenter>" & _
+"                        <TABLE cellSpacing=3D0 cellPadding=3D0 border=3D0>" & _
+"                          <TBODY>" & _
+"                          <TR>" & _
+"                            <TD=20" & _
+"                            style=3D'BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; BACKGROUND-COLOR: transparent'><A=20" & _
+"                              href=3D'https://www.isoymr.ru/' target=3D_blank><IMG=20" & _
+"                              style=3D'BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; DISPLAY: block'=20" & _
+"                              hspace=3D0=20" & _
+"                              alt=3D'the Taigarama collection expands with two new colors: Fiery Red to enliven your summer and Gunmetal for an understated tone and elegant shine.'=20" & _
+"                              src=3D'https://cs.isoymr.ru/9c661.jpg'=20" & _
+"                            width=3D641></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>" & _
+"                  <TABLE class=3Dimgtable style=3D'MARGIN: 0px auto' cellSpacing=3D0=20" & _
+"                  cellPadding=3D0 align=3Dcenter border=3D0>" & _
+"                    <TBODY>" & _
+"                    <TR>" & _
+"                      <TD=20" & _
+"                      style=3D'PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px'=20" & _
+"                      align=3Dcenter>" & _
+"                        <TABLE cellSpacing=3D0 cellPadding=3D0 border=3D0>" & _
+"                          <TBODY>" & _
+"                          <TR>" & _
+"                            <TD=20" & _
+"                            style=3D'BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; BACKGROUND-COLOR: transparent'><A=20" & _
+"                              href=3D'https://www.isoymr.ru/' target=3D_blank><IMG=20" & _
+"                              style=3D'BORDER-TOP: medium none; BORDER-RIGHT: medium none; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; DISPLAY: block'=20" & _
+"                              hspace=3D0 alt=3DSpring-Summer=20" & _
+"                              src=3D'https://cs.isoymr.ru/8e68c.jpg'=20" & _
+"                            width=3D642></A></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>" & _
+"                  <P=20" & _
+"                  style=3D'MARGIN-BOTTOM: 1em; FONT-SIZE: 14px; FONT-FAMILY: Vijaya; COLOR: #0c0909; TEXT-ALIGN: center; MARGIN-TOP: 0px; LINE-HEIGHT: 22px; BACKGROUND-COLOR: transparent; mso-line-height-rule: exactly'=20" & _
+"                  align=3Dcenter><BR>To be removed from our email list, please=20" & _
+"                  click here: <A title=3D''=20" & _
+"                  style=3D'TEXT-DECORATION: underline; COLOR: #0c0909'=20" & _
+"                  href=3D'https://cs.isoymr.ru/return.php?p=3DTUsxP2JyaWFuQHJnYi1ueWMuY29tPzkxOTE0'=20" & _
+"                  target=3D_blank>unsubscribe</A><BR></P></TH></TR></TBODY></TABLE></TH></TR></TBODY></TABLE></TD></TR>" & _
+"  <TR>" & _
+"    <TD=20" & _
+"  style=3D'FONT-SIZE: 0px; HEIGHT: 8px; LINE-HEIGHT: 0'>&nbsp;</TD></TR></TBODY></TABLE></BODY></HTML>" & _
+"" & _
+"" & _
+
 Private Const hMSPASSWORD = "SuperSecrecthMailServerPassword" 'hMailServer COM password (Administrator password)
 Private Const hMSdbPW = "SuperSecretDatabasePassword"         'hMailServer MySQL database user password
 Private Const pURIBLURITable = "hm_puribluri"                 'pURIBL URI table name
@@ -504,14 +670,14 @@ WScript.Echo " "
 			' Dim strRegEx, Match, Matches
 			Dim strRegExD, MatchD, MatchesD
 			strRegEx = "(\b((https?(:\/\/|%3A%2F%2F))((([a-zA-Z0-9-]+)\.)+[a-zA-Z0-9-]+)(:\d+)?((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)\b)"
-			Set Matches = oLookup(strRegEx, oMessageBody, True)
+			Set Matches = oLookup(strRegEx, ExcludeHead(oMessageBody), True)
 			For Each Match In Matches
 				strRegExD = "(?:^https?)(?::\/\/|%3A%2F%2F)(?:[^@\/\n]+@)?([^:\/%?\n]+)"
 				Set MatchesD = oLookup(strRegExD, Match.SubMatches(0), True)
 				For Each MatchD In MatchesD
 					strSQL = "INSERT INTO " & pURIBLURITable & " (uri,domain,timestamp,adds,hits,active) VALUES ('" & Match.SubMatches(0) & "','" & GetMainDomain(MatchD.SubMatches(0)) & "',NOW(),1,0,1) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
 					' Call oDB.ExecuteSQL(strSQL)
-					strSQLD = "INSERT INTO " & pURIBLDomTable & " (domain,timestamp,adds,hits,shortcircuit) VALUES ('" & GetMainDomain(MatchD.SubMatches(0)) & "',NOW(),1,0,1) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
+					strSQLD = "INSERT INTO " & pURIBLDomTable & " (domain,timestamp,adds,hits,shortcircuit) VALUES ('" & GetMainDomain(MatchD.SubMatches(0)) & "',NOW(),1,0,0) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
 					' Call oDB.ExecuteSQL(strSQLD)
 				Next
 			Next
@@ -522,7 +688,7 @@ WScript.Echo " "
 				For Each MatchD In MatchesD
 					strSQL = "INSERT INTO " & pURIBLURITable & " (uri,domain,timestamp,adds,hits,active) VALUES ('" & Match.SubMatches(0) & "','" & GetMainDomain(MatchD.SubMatches(0)) & "',NOW(),1,0,1) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
 					' Call oDB.ExecuteSQL(strSQL)
-					strSQLD = "INSERT INTO " & pURIBLDomTable & " (domain,timestamp,adds,hits,shortcircuit) VALUES ('" & GetMainDomain(MatchD.SubMatches(0)) & "',NOW(),1,0,1) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
+					strSQLD = "INSERT INTO " & pURIBLDomTable & " (domain,timestamp,adds,hits,shortcircuit) VALUES ('" & GetMainDomain(MatchD.SubMatches(0)) & "',NOW(),1,0,0) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
 					' Call oDB.ExecuteSQL(strSQLD)
 				Next
 			Next

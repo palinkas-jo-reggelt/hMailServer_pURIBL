@@ -277,26 +277,26 @@ Sub OnDeliveryStart(oMessage)
 			Dim strRegExD, MatchD, MatchesD
 
 			strRegEx = "(\b((https?(:\/\/|%3A%2F%2F))((([a-zA-Z0-9-]+)\.)+[a-zA-Z0-9-]+)(:\d+)?((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)\b)"
-			Set Matches = oLookup(strRegEx, oMessage.Body, True)
+			Set Matches = oLookup(strRegEx, ExcludeHead(oMessage.Body), True)
 			For Each Match In Matches
 				strRegExD = "(?:^https?)(?::\/\/|%3A%2F%2F)(?:[^@\/\n]+@)?([^:\/%?\n]+)"
 				Set MatchesD = oLookup(strRegExD, Match.SubMatches(0), True)
 				For Each MatchD In MatchesD
 					strSQL = "INSERT INTO " & pURIBLURITable & " (uri,domain,timestamp,adds,hits,active) VALUES ('" & Match.SubMatches(0) & "','" & GetMainDomain(MatchD.SubMatches(0)) & "',NOW(),1,0,1) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
 					Call oDB.ExecuteSQL(strSQL)
-					strSQLD = "INSERT INTO " & pURIBLDomTable & " (domain,timestamp,adds,hits,shortcircuit) VALUES ('" & GetMainDomain(MatchD.SubMatches(0)) & "',NOW(),1,0,1) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
+					strSQLD = "INSERT INTO " & pURIBLDomTable & " (domain,timestamp,adds,hits,shortcircuit) VALUES ('" & GetMainDomain(MatchD.SubMatches(0)) & "',NOW(),1,0,0) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
 					Call oDB.ExecuteSQL(strSQLD)
 				Next
 			Next
 
-			Set Matches = oLookup(strRegEx, oMessage.HTMLBody, True)
+			Set Matches = oLookup(strRegEx, ExcludeHead(oMessage.HTMLBody), True)
 			For Each Match In Matches
 				strRegExD = "(?:^https?)(?::\/\/|%3A%2F%2F)(?:[^@\/\n]+@)?([^:\/%?\n]+)"
 				Set MatchesD = oLookup(strRegExD, Match.SubMatches(0), True)
 				For Each MatchD In MatchesD
 					strSQL = "INSERT INTO " & pURIBLURITable & " (uri,domain,timestamp,adds,hits,active) VALUES ('" & Match.SubMatches(0) & "','" & GetMainDomain(MatchD.SubMatches(0)) & "',NOW(),1,0,1) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
 					Call oDB.ExecuteSQL(strSQL)
-					strSQLD = "INSERT INTO " & pURIBLDomTable & " (domain,timestamp,adds,hits,shortcircuit) VALUES ('" & GetMainDomain(MatchD.SubMatches(0)) & "',NOW(),1,0,1) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
+					strSQLD = "INSERT INTO " & pURIBLDomTable & " (domain,timestamp,adds,hits,shortcircuit) VALUES ('" & GetMainDomain(MatchD.SubMatches(0)) & "',NOW(),1,0,0) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
 					Call oDB.ExecuteSQL(strSQLD)
 				Next
 			Next
