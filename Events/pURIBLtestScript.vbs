@@ -1,7 +1,10 @@
 Option Explicit
 
+'###   pURIBL MySQL Table Structure   ###'
+'
 ' CREATE TABLE IF NOT EXISTS hm_puribluri (
 	' id int(11) NOT NULL AUTO_INCREMENT,
+	' strid varchar(32) NOT NULL,
 	' uri text NOT NULL,
 	' domain varchar(128) NOT NULL,
 	' timestamp datetime NOT NULL,
@@ -15,6 +18,7 @@ Option Explicit
 
 ' CREATE TABLE IF NOT EXISTS hm_puribldom (
 	' id int(11) NOT NULL AUTO_INCREMENT,
+	' strid varchar(32) NOT NULL,
 	' domain text NOT NULL,
 	' timestamp datetime NOT NULL,
 	' adds mediumint(9) NOT NULL,
@@ -686,9 +690,9 @@ WScript.Echo " "
 				strRegExD = "(?:^https?)(?::\/\/|%3A%2F%2F)(?:[^@\/\n]+@)?([^:\/%?\n]+)"
 				Set MatchesD = oLookup(strRegExD, Match.SubMatches(0), True)
 				For Each MatchD In MatchesD
-					strSQL = "INSERT INTO " & pURIBLURITable & " (uri,domain,timestamp,adds,hits,active) VALUES ('" & Match.SubMatches(0) & "','" & GetMainDomain(MatchD.SubMatches(0)) & "',NOW(),1,0,1) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
+					strSQL = "INSERT INTO " & pURIBLURITable & " (uri,strid,domain,timestamp,adds,active) VALUES ('" & Match.SubMatches(0) & "',MD5('" & Match.SubMatches(0) & "'),'" & GetMainDomain(MatchD.SubMatches(0)) & "',NOW(),1,1) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
 					' Call oDB.ExecuteSQL(strSQL)
-					strSQLD = "INSERT INTO " & pURIBLDomTable & " (domain,timestamp,adds,hits,shortcircuit) VALUES ('" & GetMainDomain(MatchD.SubMatches(0)) & "',NOW(),1,0,0) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
+					strSQLD = "INSERT INTO " & pURIBLDomTable & " (domain,strid,timestamp,adds,hits,shortcircuit) VALUES ('" & GetMainDomain(MatchD.SubMatches(0)) & "',MD5('" & GetMainDomain(MatchD.SubMatches(0)) & "'),NOW(),1,0,0) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
 					' Call oDB.ExecuteSQL(strSQLD)
 				Next
 			Next

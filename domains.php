@@ -88,7 +88,7 @@
 	$sql = $pdo->prepare("
 		SELECT * FROM ".$Database['tabledomname']." 
 		WHERE id > 0".$search_SQL."
-		ORDER BY domain ASC
+		ORDER BY timestamp DESC
 		LIMIT ".$offset.", ".$no_of_records_per_page.";
 	");
 	$sql->execute();
