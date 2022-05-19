@@ -278,7 +278,8 @@ Function GetMessages ($Folder) {
 						Debug "Folder     : $($Folder.Name)"
 						Debug "Message ID : $($Message.ID)"
 						Debug "File       : $($Message.FileName)"
-						Debug "URI        : $($Matches[0])"
+						Debug "URI        : $URI"
+						# Debug "URI        : $((($URI -Split '://')[0]) + ':// ' + (($URI -Replace 'https?:\/\/','') -Replace '(?<delim>\/|\.|\+|\?|\%\w{2}|-)',' ${delim} '))"
 						
 						<#  Record hit on HAM message  #>
 						$URIHits++
@@ -412,6 +413,8 @@ Function GetMessages ($Folder) {
 									Debug "Message ID : $($Message.ID)"
 									Debug "File       : $($Message.FileName)"
 									Debug "URI        : $URI"
+									# Debug "URI        : $((($URI -Split '://')[0]) + ':// ' + (($URI -Replace 'https?:\/\/','') -Replace '(?<delim>\/|\.|\+|\?|\%\w{2}|-)',' ${delim} '))"
+									
 									If (!$Simulate) {
 										MySQLQuery "INSERT INTO $pURIBLURITable (uri,strid,domain,timestamp,adds,hits,active) VALUES ('$URI',MD5('$URI'),'$MainDomain',NOW(),1,0,1) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
 										MySQLQuery "INSERT INTO $pURIBLDomTable (domain,strid,timestamp,adds,shortcircuit) VALUES ('$MainDomain',MD5('$MainDomain'),NOW(),1,0) ON DUPLICATE KEY UPDATE adds=(adds+1),timestamp=NOW();"
@@ -573,7 +576,7 @@ Function CustomSARuleFile {
 	}
 }
 
-Function CheckForUpdates {
+Function CheckForUpdates ($VersionNumber) {
 	Debug "----------------------------"
 	Debug "Checking for script update at GitHub"
 	$GitHubVersion = $LocalVersion = $NULL
@@ -589,12 +592,8 @@ Function CheckForUpdates {
 		}
 		$GitHubVersionTries++
 	} Until (($GitHubVersion -gt 0) -or ($GitHubVersionTries -eq 6))
-	If (Test-Path "$PSScriptRoot\VERSION") {
-		$LocalVersion = [decimal](Get-Content "$PSScriptRoot\VERSION")
-		$GetLocalVersion = $True
-	} 
-	If (($GetGitHubVersion) -and ($GetLocalVersion)) {
-		If ($LocalVersion -lt $GitHubVersion) {
+	If ($GetGitHubVersion) {
+		If ($VersionNumber -lt $GitHubVersion) {
 			Debug "[INFO] Upgrade to version $GitHubVersion available at https://github.com/palinkas-jo-reggelt/hMailServer_pURIBL"
 			If ($UseHTML) {
 				Email "[INFO] Upgrade to version $GitHubVersion available at <a href=`"https://github.com/palinkas-jo-reggelt/hMailServer_pURIBL`">GitHub</a>"
@@ -605,14 +604,8 @@ Function CheckForUpdates {
 			Debug "pURI-BL script is latest version: $GitHubVersion"
 		}
 	} Else {
-		If ((-not($GetGitHubVersion)) -and (-not($GetLocalVersion))) {
-			Debug "[ERROR] Version test failed : Could not obtain either GitHub nor local version information"
-			Email "[ERROR] Version check failed"
-		} ElseIf (-not($GetGitHubVersion)) {
+		If (-not($GetGitHubVersion)) {
 			Debug "[ERROR] Version test failed : Could not obtain version information from GitHub"
-			Email "[ERROR] Version check failed"
-		} ElseIf (-not($GetLocalVersion)) {
-			Debug "[ERROR] Version test failed : Could not obtain local install version information"
 			Email "[ERROR] Version check failed"
 		} Else {
 			Debug "[ERROR] Version test failed : Unknown reason - file issue at GitHub"
@@ -695,7 +688,7 @@ FeedpURIBL
 If ($SARuleCF) {If (!$Simulate) {CustomSARuleFile}}
 
 <#  Check for updates  #>
-CheckForUpdates
+CheckForUpdates 7
 
 <#  Finish up and send email  #>
 Debug "----------------------------"
